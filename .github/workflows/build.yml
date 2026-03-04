@@ -49,7 +49,7 @@ jobs:
           DAY_OF_YEAR=$(date +%j | sed 's/^0*//')
           
           # Calculate Memory (768 + Day of Year)
-          MEM=$((512 + DAY_OF_YEAR))
+          MEM=$((768 + DAY_OF_YEAR))
           
           echo "Day of year: $DAY_OF_YEAR"
           echo "Setting Xmx to: ${MEM}m"
