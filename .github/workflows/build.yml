@@ -58,4 +58,4 @@ jobs:
           export SONAR_SCANNER_JAVA_OPTS="-Xmx${MEM}m"
           
           # Run Sonar target with dynamic versioning
-          ./gradlew sonar -Dsonar.projectVersion=$DAY_OF_YEAR --d
+          ./gradlew sonar -Dsonar.projectVersion=$DAY_OF_YEAR
