@@ -38,8 +38,8 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
 
-      - name: Build (Assemble)
-        run: ./gradlew assemble
+#      - name: Build (Assemble)
+#        run: ./gradlew assemble
 
       - name: Sonar Analysis
         env:
@@ -48,7 +48,7 @@ jobs:
           # Calculate Day of Year (1-366) and strip leading zeros
           DAY_OF_YEAR=$(date +%j | sed 's/^0*//')
           
-          # Calculate Memory (512 + Day of Year)
+          # Calculate Memory (768 + Day of Year)
           MEM=$((512 + DAY_OF_YEAR))
           
           echo "Day of year: $DAY_OF_YEAR"
@@ -58,4 +58,4 @@ jobs:
           export SONAR_SCANNER_JAVA_OPTS="-Xmx${MEM}m"
           
           # Run Sonar target with dynamic versioning
-          ./gradlew sonar -Dsonar.projectVersion=$DAY_OF_YEAR
+          ./gradlew assemble sonar -Dsonar.projectVersion=$DAY_OF_YEAR
